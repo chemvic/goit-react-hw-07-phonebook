@@ -3,10 +3,9 @@ import { getFilteredContacts } from '../../redux/selectors';
 import ContactForm from "../ContactForm";
 import  Filter from "../Filter";
 import ContactList from "../ContactList";
+import Loader from '../Loader/Loader';
 
 const App =()=> {
-
-
     
     const filteredContacts=useSelector(getFilteredContacts);    
 
@@ -25,7 +24,9 @@ const App =()=> {
       
       <Filter />
       {filteredContacts.length>0 ? <ContactList/> 
-      :<p>There is no contacts by query</p>}    
+      :<p>There is no contacts by query</p>}  
+
+      <Loader visible={true}/>  
 
     </div>
   );
