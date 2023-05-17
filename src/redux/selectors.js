@@ -1,18 +1,14 @@
-export const getContacts = state => state.contacts.items;
-export const getIsLoading = state => state.contacts.isLoading;
-export const getError = state => state.contacts.error;
-
-
-
-
+export const getContacts = ({contacts:{items}}) => items;
+export const getIsLoading = ({contacts:{isLoading}}) => isLoading;
+export const getError = ({contacts:{error}}) => error;
 
 export const getFilter = ({filter}) => filter;
-export const getFilteredContacts = ({contacts.items, filter}) =>{
+export const getFilteredContacts = ({contacts:{items}, filter}) =>{
    if(!filter){
-    return contacts;
+    return items;
    }
-    return contacts
-			.filter(({name, number}) =>
+    return items
+			.filter(({name, phone}) =>
        name.toLowerCase().includes(filter.toLowerCase())
-       ||number.includes(filter));    
+       ||phone.includes(filter));    
      } 
